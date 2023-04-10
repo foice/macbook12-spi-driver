@@ -1802,7 +1802,7 @@ static u32 applespi_notify(acpi_handle gpe_device, u32 gpe, void *context)
 
 static int applespi_get_saved_bl_level(struct applespi_data *applespi)
 {
-	struct efivar_entry *efivar_entry;
+	/*struct efivar_entry *efivar_entry;
 	u16 efi_data = 0;
 	unsigned long efi_data_len;
 	int sts;
@@ -1824,19 +1824,20 @@ static int applespi_get_saved_bl_level(struct applespi_data *applespi)
 
 	kfree(efivar_entry);
 
-	return sts ? sts : efi_data;
+	return sts ? sts : efi_data;*/
+	return 1;
 }
 
 static void applespi_save_bl_level(struct applespi_data *applespi,
 				   unsigned int level)
 {
-	efi_guid_t efi_guid;
+	/*efi_guid_t efi_guid;
 	u32 efi_attr;
 	unsigned long efi_data_len;
 	u16 efi_data;
-	int sts;
+	int sts; */
 
-	/* Save keyboard backlight level */
+	/* Save keyboard backlight level */ /*
 	efi_guid = EFI_BL_LEVEL_GUID;
 	efi_data = (u16)level;
 	efi_data_len = sizeof(efi_data);
@@ -1847,7 +1848,7 @@ static void applespi_save_bl_level(struct applespi_data *applespi,
 				    efi_attr, true, efi_data_len, &efi_data);
 	if (sts)
 		dev_warn(&applespi->spi->dev,
-			 "Error saving backlight level to EFI vars: %d\n", sts);
+			 "Error saving backlight level to EFI vars: %d\n", sts);*/
 }
 
 static void applespi_enable_early_event_tracing(struct device *dev)
